@@ -1,0 +1,26 @@
+name: Periodic Update
+
+on:
+  schedule:
+    - cron: '0 */4 * * *' # هر چهار ساعت یکبار
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Update Repository
+        run: |
+          git config --local user.email "mohsenmojadam2019@gmail.com.com"
+          git config --local user.name "mohsenmojadam2019"
+          git pull origin main
+          # دستورات یا اسکریپت‌های به‌روزرسانی اضافی را در اینجا اضافه کنید
+
+      - name: Commit Changes
+        run: |
+          git add .
+          git commit -m "Automated periodic update [skip ci]"
+          git push origin main
