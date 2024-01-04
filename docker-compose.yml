@@ -86,7 +86,7 @@ services:
         networks:
             - notification
 
-  
+
     swoole:
         build:
             context: .
@@ -101,7 +101,6 @@ services:
         networks:
             - notification
         # Web Socket Service
-
 
 networks:
     gateway:
